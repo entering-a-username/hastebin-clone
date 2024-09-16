@@ -1,0 +1,13 @@
+<div class="buttons-wrapper">
+    <a href="/" class="logo">Hastebin</a>
+    <div class="buttons">
+        <a href="/new" class="btn">new</a>
+        <% if (locals.canSave) { %>
+            <button class="btn" type="submit">Save</button>
+        <% } %>
+
+        <% if (locals.id) { %>
+            <a class="btn" href="<%= locals.id %>/edit">Edit</a>
+        <% } %>
+    </div>
+</div>

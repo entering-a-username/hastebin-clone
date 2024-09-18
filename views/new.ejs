@@ -22,8 +22,23 @@
         </div>
     </form>
 
+    <div class="content">
+        <div class="history-container">
+            <% if (history && value) { %>
+                <% history.forEach((version, index) => { %>
+                    <div class="history-item">
+                        <p>Version <%= index + 1 %>: "<%= version.value.slice(0, 30) %>..."</p>
+                        <small>Saved at: <%= new Date(version.timestamp).toLocaleString() %></small>
+                        
+                    </div>
+                <% }) %>
+            <% } %>
+        </div>
+    </div>
+
+
     <script>
-        autosize(document.querySelector("textarea"))
+        autosize(document.querySelector("textarea"));
     </script>
     
 </body>

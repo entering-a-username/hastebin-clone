@@ -34,7 +34,7 @@ app.get("/:id", async (req, res) => {
     try {
         const document = await Document.findById(id);
 
-        res.render('display', {code: document.value, id });
+        res.render('display', {history: document.history, value: document.value, id });
     } catch (err) {
         res.redirect("/");
     }
@@ -42,10 +42,14 @@ app.get("/:id", async (req, res) => {
 
 app.get("/:id/edit", async (req, res) => {
     const id = req.params.id;
+    
 
     try {
         const document = await Document.findById(id);
-        res.render("new", { value: document.value });
+        document.history.push({value: document.value});
+        // document.value = value;
+        await document.save(); // inco?
+        res.render('new', {history: document.history, value: document.value });
     } catch (err) {
         res.redirect(`/${id}`);
     }

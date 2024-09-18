@@ -3,9 +3,6 @@ nodejs, mongodb, use of partials and env variables
 
 
 todo:
- - add number lining
- - fix save/show functionality
- - edit history?
  - expiration times?
  - syntax highlight to programming language parts?
  - search?
